@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="main.css">
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;600;700&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <!-- Success Reset-->
+    <div id="successScreen" class="success success-off">
+      <button id="successButton">CHEERS!</button>
+    </div>
+    <div class="main">
+      <!-- Stats -->
+    <div id="stats">
+      <div class="data-icon-times">
+        <img class="icon" id="year-icon" src="./images/calendarYear.svg"/>
+        <img class="icon" id="month-icon" src="./images/calendarMonth.svg"/>
+        <img class="icon selected-data-mode" id="week-icon" src="./images/calendarWeek.svg"/>
+      </div>
+      
+
+      <!-- Week -->
+      <div class="stats-week">
+      <img id="left-arrow" src="./images/leftArrow.svg"/>
+      <img id="right-arrow" src="./images/leftArrow.svg"/>
+      <div class="chart  week">
+        <div class="bars">
+          <div class="column"><div class="val"><div class="text data-small-font"></div></div></div>
+          <div class="column"><div class="val"><div class="text data-small-font"></div></div></div>
+          <div class="column"><div class="val"><div class="text data-small-font"></div></div></div>
+          <div class="column"><div class="val"><div class="text data-small-font"></div></div></div>
+          <div class="column"><div class="val"><div class="text data-small-font"></div></div></div>
+          <div class="column"><div class="val"><div class="text data-small-font"></div></div></div>
+          <div class="column"><div class="val"><div class="text data-small-font"></div></div></div>
+        </div>
+        <div class="days bold-text">
+          <div>S</div>
+          <div>M</div>
+          <div>T</div>
+          <div>W</div>
+          <div>T</div>
+          <div>F</div>
+          <div>S</div>
+        </div>
+        <div id="data-date" class="data-small-font "> 
+          This is the week date string thing
+        </div>
+      </div>
+    </div>
+     <!-- Month -->
+     <div class="stats-month hide-stats-type">
+      <img id="left-arrow-month" src="./images/leftArrow.svg"/>
+      <img id="right-arrow-month" src="./images/leftArrow.svg"/>
+      <div class="chart  month">
+        <div class="bars">
+          <!-- month bars set -->
+          <div class="column"><div class="val"><div class="text data-small-font"></div></div></div>
+          <div class="column"><div class="val"><div class="text data-small-font"></div></div></div>
+          <div class="column"><div class="val"><div class="text data-small-font"></div></div></div>
+          <div class="column"><div class="val"><div class="text data-small-font"></div></div></div>
+          <div class="column"><div class="val"><div class="text data-small-font"></div></div></div>
+          <div class="column"><div class="val"><div class="text data-small-font"></div></div></div>
+          <div class="column"><div class="val"><div class="text data-small-font"></div></div></div>
+          <div class="column"><div class="val"><div class="text data-small-font"></div></div></div>
+          <div class="column"><div class="val"><div class="text data-small-font"></div></div></div>
+          <div class="column"><div class="val"><div class="text data-small-font"></div></div></div>
+          <div class="column"><div class="val"><div class="text data-small-font"></div></div></div>
+          <div class="column"><div class="val"><div class="text data-small-font"></div></div></div>
+          <div class="column"><div class="val"><div class="text data-small-font"></div></div></div>
+          <div class="column"><div class="val"><div class="text data-small-font"></div></div></div>
+          <div class="column"><div class="val"><div class="text data-small-font"></div></div></div>
+          <div class="column"><div class="val"><div class="text data-small-font"></div></div></div>
+          <div class="column"><div class="val"><div class="text data-small-font"></div></div></div>
+          <div class="column"><div class="val"><div class="text data-small-font"></div></div></div>
+          <div class="column"><div class="val"><div class="text data-small-font"></div></div></div>
+          <div class="column"><div class="val"><div class="text data-small-font"></div></div></div>
+          <div class="column"><div class="val"><div class="text data-small-font"></div></div></div>
+          <div class="column"><div class="val"><div class="text data-small-font"></div></div></div>
+          <div class="column"><div class="val"><div class="text data-small-font"></div></div></div>
+          <div class="column"><div class="val"><div class="text data-small-font"></div></div></div>
+          <div class="column"><div class="val"><div class="text data-small-font"></div></div></div>
+          <div class="column"><div class="val"><div class="text data-small-font"></div></div></div>
+          <div class="column"><div class="val"><div class="text data-small-font"></div></div></div>
+          <div class="column"><div class="val"><div class="text data-small-font"></div></div></div>
+          <div class="column"><div class="val"><div class="text data-small-font"></div></div></div>
+          <div class="column"><div class="val"><div class="text data-small-font"></div></div></div>
+          <div class="column"><div class="val"><div class="text data-small-font"></div></div></div>
+        </div>
+        <div class="days bold-text">
+          <div>1</div>
+          <div>5</div>
+          <div>10</div>
+          <div>15</div>
+          <div>20</div>
+          <div>25</div>
+          <div>30</div>
+        </div>
+        <div id="data-date-month" class="data-small-font "> 
+          This is the week date string thing
+        </div>
+      </div>
+    </div>
+    <!-- YEAR -->
+    <div class="stats-year hide-stats-type">
+      <img id="left-arrow-year" src="./images/leftArrow.svg"/>
+      <img id="right-arrow-year" src="./images/leftArrow.svg"/>
+      <div class="chart year">
+        <div class="bars">
+          <div class="column"><div class="val"><div class="text data-small-font"></div></div></div>
+          <div class="column"><div class="val"><div class="text data-small-font"></div></div></div>
+          <div class="column"><div class="val"><div class="text data-small-font"></div></div></div>
+          <div class="column"><div class="val"><div class="text data-small-font"></div></div></div>
+          <div class="column"><div class="val"><div class="text data-small-font"></div></div></div>
+          <div class="column"><div class="val"><div class="text data-small-font"></div></div></div>
+          <div class="column"><div class="val"><div class="text data-small-font"></div></div></div>
+          <div class="column"><div class="val"><div class="text data-small-font"></div></div></div>
+          <div class="column"><div class="val"><div class="text data-small-font"></div></div></div>
+          <div class="column"><div class="val"><div class="text data-small-font"></div></div></div>
+          <div class="column"><div class="val"><div class="text data-small-font"></div></div></div>
+          <div class="column"><div class="val"><div class="text data-small-font"></div></div></div>
+        </div>
+        <div class="years days bold-text">
+          <div>Jan</div>
+          <div>Feb</div>
+          <div>Mar</div>
+          <div>Apr</div>
+          <div>May</div>
+          <div>Jun</div>
+          <div>Jul</div>
+          <div>Aug</div>
+          <div>Sep</div>
+          <div>Oct</div>
+          <div>Nov</div>
+          <div>Dec</div>
+        </div>
+        <div id="data-date-year" class="data-small-font "> 
+          This is the week date string thing
+        </div>
+      </div>
+    </div>
+
+    </div>
+
+    <div id="home">
+    
+
+
+    <br/> 
+    <h1 id="today" class="bold-text">0 mins Today</h1>
+    <h1 id="clock" class="bold-text"></h1>
+    <br/>
+    <div class="cocktail-card-wrapper">
+      <div class="card-main">
+        <div class="card-name card-text-large">Beverage</div>
+        <div id="cocktail-icon" class="card-icon"></div>
+        <div id="cocktail-icon-text" class="card-text-small">999</div>
+        <div id="timer-icon" class="card-icon"></div>
+        <div id="timer-icon-text" class="card-text-small">999</div>
+        <div id="cash-icon" class="card-icon"></div>
+        <div id="cash-icon-text" class="card-text-small">999</div>
+        <div id="card-play-button" class="hoverAction card-text-large">PLAY</div>
+        <svg
+        viewBox="0 0 100 50"
+      ><g
+        fill-opacity="0"
+        stroke-width="8"
+      ><path
+        d="M5 50a45 45 0 1 1 90 0"
+        stroke="#EBEDF8"
+      /><path
+        class="progress"
+        d="M5 50a45 45 0 1 1 90 0"
+        stroke="#00ca9d"
+        stroke-dasharray="142"
+        stroke-dashoffset="142"
+      /></g></svg>
+      <div id="card-xp-text" class="card-text-small">99999</div>
+      </div>
+      <div class="card-shadow"></div>
+    </div>
+    <div id="timerToggle" class="cocktailIcon"></div>
+    <div id="cocktailBlock"></div>
+    <img class="cocktail-icon pointsIcon hide-on-timer" src="./images/cocktail-icon.svg" id="cockTimeIcon"/>
+    <div class="pointsText hide-on-timer bold-text" id="cockTime"></div>
+    <img id="eye" class="eye-icon" src="./images/eye.svg"/>
+    <label class="switch" id="eye-switch">
+      <input type="checkbox"  id="eye-switch-check">
+      <span class="slider round"></span>
+    </label>
+  </div>
+  <div id="bar">
+    <div class="cash bold-text">
+      <img class="icon" src="./images/cash-icon-circle-white.svg"/>
+      <div class="cash-text"> 0000</div>
+    </div>
+    <div class="store-container">
+      <div class="store-container-block"></div>
+    </div>
+
+  </div>
+</div>
+
+
+  <div class="nav">
+    <div id="nav-block"></div>
+    <div id="selector"></div>
+    <div class="nav-button"><img class="icon hoverAction" id="stats-menu-icon" src="./images/stats-icon.svg"/></div>
+    <div class="nav-button" ><img class="icon hoverAction" id="home-menu-icon" src="./images/home-icon.svg"/></div>
+    <div class="nav-button"><img class="icon hoverAction" id="bar-menu-icon" src="./images/bar-icon.svg"/></div>
+  </div>
+  <script src="/js/popup.js"></script>
+  </body>
+</html>
