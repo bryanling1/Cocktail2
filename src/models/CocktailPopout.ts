@@ -513,7 +513,7 @@ export class CocktailPopout{
         navbarBlockerRef.style.display = "block";
     }
     showElementsWhileTimerNotExist():void{
-        cardRef.style.display = '#3d3d3d'
+        cardRef.style.display = 'initial'
         minutesTodayRef.style.display = "block"
         navbarBlockerRef.style.display = "none"
         storeBlockerRef.style.display = "none"
@@ -568,20 +568,10 @@ export class CocktailPopout{
         this.minutesToday += Math.floor(req.time/60)
         this.displayMinutesToday(this.minutesToday)
         this.showElementsWhenTimerOff()
-        if(req.isHardcore){
-            this.popoutTimer.startCocktailtimer();
-        }
+        req.isHardcore && this.popoutTimer.startCocktailtimer();
         this.showElementsWhileTimerNotExist();
         this.loadStats();
         this.displayCash();
-
-        /**
-         * TODO: add methods for store
-         */
-
-        // displayCash()
-        // displayStoreCocktailItems()
-    
     }
     setHomeView(){
         menuSelectorRef.style.left = '132px';
