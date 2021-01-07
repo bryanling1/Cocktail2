@@ -240,6 +240,7 @@ export class CocktailPopout{
         this.minutesToday = 0;
         this.stats = new Stats();
         this.init();
+        
     }
 
     async init():Promise<{}>{
@@ -252,12 +253,12 @@ export class CocktailPopout{
                 //timer
                 this.popoutTimer.setTimerVal(res.timerVal);
                 this.displayTime(this.popoutTimer.timerVal);
-                if(res.isTimerOn){
-                    this.popoutTimer.startTimer();
-                }
+                res.isTimerOn && this.popoutTimer.startTimer();
+                
                 //display
                 this.hideElementsWhileTimerExist();
                 this.hideElementsWhileTimerOn();
+                if(res.isTimerOn) clockRef.style.color = this.rankColor
             }
             //INIT COCKTAIL TIMER
             /**
@@ -265,20 +266,17 @@ export class CocktailPopout{
              */
             //timer
             this.popoutTimer.setCocktailTimerVal(res.cocktailTimerVal);
-            if(res.isCocktailTimerOn){
-                this.popoutTimer.startCocktailtimer();
-                cockTimeRef.style.color = this.rankColor;
-            }
+            res.isCocktailTimerOn && this.popoutTimer.startCocktailtimer();
+                
             //display
             this.displayCocktailTime(res.cocktailTimerVal);
+            if(res.isCocktailTimerOn) cockTimeRef.style.color = this.rankColor;
             //init hardcore mode
             //timer
 
             //display
             if(res.isHardcore){
                 this.displayHardcoreModeOn();
-            }else{
-                this.displayHardcoreModeOff();
             }
         })
 
@@ -311,19 +309,26 @@ export class CocktailPopout{
             if(this.popoutTimer.isTimerOn){
                 this.hideElementsWhileTimerOn()
                 this.hideElementsWhileTimerExist();
+                
             }
+            //Displays
+            clockRef.style.color = this.popoutTimer.isTimerOn ? this.rankColor : '#3d3d3d';
         }
 
         cardPlayButtonRef.onclick = () => {
             chrome.runtime.sendMessage({"message": "toggleTimer"})
             this.popoutTimer.startTimer();
+
+            //Displays
             this.hideElementsWhileTimerOn();
             this.hideElementsWhileTimerExist();
+            clockRef.style.color = this.rankColor;
         }
 
         cocktailButtonText.onclick = () =>{
             chrome.runtime.sendMessage({"message": "cocktailButton"})
             this.popoutTimer.toggleCocktailtimer();
+            cockTimeRef.style.color = this.popoutTimer.isCocktailTimerOn? this.rankColor : '#3d3d3d'
         }
         
         cocktailButtonIcon.onclick = cocktailButtonText.onclick;
@@ -508,7 +513,7 @@ export class CocktailPopout{
         navbarBlockerRef.style.display = "block";
     }
     showElementsWhileTimerNotExist():void{
-        cardRef.style.display = "initial";
+        cardRef.style.display = '#3d3d3d'
         minutesTodayRef.style.display = "block"
         navbarBlockerRef.style.display = "none"
         storeBlockerRef.style.display = "none"
@@ -538,8 +543,9 @@ export class CocktailPopout{
         cocktimeIconRef.src = "./images/cocktail-icon-light.svg"
         eyeRef.src = './images/eye-dark.svg'
         todayTimeRef.style.color = "white"
-        clockRef.style.color = "white"
         eyeSwitchSliderRef.style.backgroundColor = this.rankColor;
+        clockRef.style.color = this.popoutTimer.isTimerOn ? this.rankColor : "white"
+        cockTimeRef.style.color = this.popoutTimer.isCocktailTimerOn ? this.rankColor : "white"
     }
 
     displayHardcoreModeOff():void{
@@ -549,8 +555,9 @@ export class CocktailPopout{
         cocktimeIconRef.src = "./images/cocktail-icon.svg"
         eyeRef.src = './images/eye.svg'
         todayTimeRef.style.color = "#3d3d3d"
-        clockRef.style.color = "#3d3d3d"
         eyeSwitchSliderRef.style.backgroundColor = "#3d3d3d"
+        clockRef.style.color = this.popoutTimer.isTimerOn ? this.rankColor : "#3d3d3d"
+        cockTimeRef.style.color = this.popoutTimer.isCocktailTimerOn? this.rankColor : "white"
     }
 
     success=(req):void=>{
