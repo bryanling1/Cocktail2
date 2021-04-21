@@ -20,13 +20,17 @@ export class Stats{
         this.yearData = this.initData(12);
     }
 
-    load=async():Promise<void>=>{
-        this.setCurrentWeekDates();
-        await this.setWeekVals();
-        this.setCurrentMonthDates();
-        await this.setMonthVals();
-        this.setCurrentYearDates();
-        await this.setYearVals();
+    load=async():Promise<{}>=>{
+        return new Promise(async(resolve, reject)=>{
+            this.setCurrentWeekDates();
+            await this.setWeekVals();
+            this.setCurrentMonthDates();
+            await this.setMonthVals();
+            this.setCurrentYearDates();
+            await this.setYearVals();
+            resolve(this.weekData);
+        })
+        
     }
 
     private initData(x:number):DateNodeType[]{

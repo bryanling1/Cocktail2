@@ -654,7 +654,8 @@ export class CocktailPopout{
     }
 
     loadStats=()=>{
-        this.stats.load().then(()=>{
+        this.stats.load().then((data)=>{
+            console.log(data)
             //week
             this.dispayWeekVals(this.stats.weekData, this.stats.getHeights(this.stats.weekData));
             weekRangeRef.innerHTML = this.stats.getWeekRange();
